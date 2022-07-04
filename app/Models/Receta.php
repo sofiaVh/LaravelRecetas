@@ -10,7 +10,7 @@ class Receta extends Model
 {
     use HasFactory;
 
-    protected $fillable =['title', 'content', 'category'];
+    protected $fillable =['title', 'content', 'category', 'user_id'];
 
     //pasar un arreglo, filtrando por title y category
     public static function search($input)
