@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
   
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory,Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -61,7 +61,7 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
     public function recetas(){
-        return $this->hasMany(Receta::class,'id');
+        return $this->hasMany(Receta::class,'user_id');
     }
 
 }

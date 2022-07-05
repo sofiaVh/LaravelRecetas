@@ -27,7 +27,7 @@ class CreateRecetaRequest extends FormRequest
             'title'=> 'required|string|max:200',
             'content'=>'required',
             'category'=> 'required|string|max:100',
-           
+            
         ];
     }
 }
