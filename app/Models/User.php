@@ -9,7 +9,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\Model;
 
+  
 class User extends Authenticatable implements JWTSubject
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -58,4 +60,8 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+    public function recetas(){
+        return $this->hasMany(Receta::class,'id');
+    }
+
 }

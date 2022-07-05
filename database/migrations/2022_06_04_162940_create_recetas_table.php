@@ -18,7 +18,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('content');
             $table->string('category');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')
+                  ->nullable()
+                  ->constrained('users')
+                  ->cascadeOnUpdate()
+                  ->nullOnDelete();
             $table->timestamps();
             $table->softDeletes();//softDelete: delete_at en bd, es borrado lógico o físico 
         });

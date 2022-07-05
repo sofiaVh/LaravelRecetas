@@ -10,7 +10,13 @@ class Receta extends Model
 {
     use HasFactory;
 
+    public function users(){
+        return $this->belongsTo(User::class,'user_id');
+    }
     protected $fillable =['title', 'content', 'category', 'user_id'];
+
+
+
 
     //pasar un arreglo, filtrando por title y category
     public static function search($input)
@@ -26,4 +32,6 @@ class Receta extends Model
         }
         return $receta->get();
     }
+
+    
 }
