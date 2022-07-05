@@ -15,14 +15,15 @@ return new class extends Migration
     {
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('content');
-            $table->string('category');
             $table->foreignId('user_id')
                   ->nullable()
                   ->constrained('users')
                   ->cascadeOnUpdate()
                   ->nullOnDelete();
+            $table->string('title');
+            $table->string('content');
+            $table->string('category');
+            
             $table->timestamps();
             $table->softDeletes();//softDelete: delete_at en bd, es borrado lógico o físico 
         });
