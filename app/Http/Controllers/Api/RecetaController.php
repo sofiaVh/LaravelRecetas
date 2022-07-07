@@ -37,6 +37,7 @@ class RecetaController extends Controller
         $receta->content =$request->input('content');
         $receta->category =$request->input('category');
         $receta->user_id = auth()->user('user_id');
+        
         $receta->save();
         
         return response()->json(['message'=> 'Datos Json', 'data'=>$receta]);
