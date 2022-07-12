@@ -15,6 +15,9 @@ use App\Http\Controllers\Api\RecetaController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::middleware(['cors'])->group(function () {
+    Route::post('/hogehoge', 'Controller@hogehoge');
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
