@@ -17,9 +17,10 @@ use App\Http\Controllers\Api\RecetaController;
 */
 Route::middleware(['cors'])->group(function () {
     Route::post('/hogehoge', 'Controller@hogehoge');
-    Route::resource('recetas', \App\Http\Controllers\Api\RecetaController::class);
-    Route::delete('recetas/{receta}/force',[\App\Http\Controllers\Api\RecetaController::class, 'forceDestroy'])->name('recetas.forceDestroy');
 });
+
+Route::resource('recetas', \App\Http\Controllers\Api\RecetaController::class);
+Route::delete('recetas/{receta}/force',[\App\Http\Controllers\Api\RecetaController::class, 'forceDestroy'])->name('recetas.forceDestroy');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
